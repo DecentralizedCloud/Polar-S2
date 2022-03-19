@@ -4,6 +4,13 @@ import fetch from "node-fetch";
 
 const formdata = new FormData();
 
+
+/**
+ * Uploads the given file to the polar-s3, references will contain path where to store file
+ * @param {string} fileName 
+ * @param {string} reference 
+ * @param {string} file 
+ */
 const add = (fileName, reference, file) => {
     formdata.append("userId", credentials.userId)
     formdata.append("apiKey", credentials.apiKey)
