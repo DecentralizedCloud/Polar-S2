@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/DecentralizedCloud/Polar-S2/issues"
   },
-  "homepage": "https://github.com/DecentralizedCloud/Polar-S2#readme"
+  "homepage": "https://github.com/DecentralizedCloud/Polar-S2#readme",
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "node-fetch": "^3.2.3"
+  }
 }

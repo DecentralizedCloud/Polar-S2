@@ -1,10 +1,10 @@
-import { setData } from "./store.js";
+import credentials from "./credentials.js";
 
 /**
- * @param {{APIKey: String, userId: String, projectId: String, projectName: String}}
+ * @param {{apiKey: String, userId: String, projectId: String, projectName: String}}
  */
-const init = ({ APIKey, userId, projectId, projectName }) => {
-  setData({ APIKey, userId, projectId, projectName });
+const init = ({ apiKey, userId, projectId, projectName }) => {
+  credentials.setCredential = { apiKey, userId, projectId, projectName };
 };
 
 export default init;
