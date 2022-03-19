@@ -1,4 +1,4 @@
-import { init, printData } from "./index.js";
+import { init, printData, get, getMetaData } from "./index.js";
 init({
   APIKey: "asddsa",
   projectId: "asddsa",
