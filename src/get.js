@@ -2,13 +2,12 @@ import credentials from "./credentials.js";
 import fetch from "node-fetch";
 
 /**
- * Accepts String reference to file and returns File
- * @param {String} reference
- * @param {String} fileName
- * @returns {Promise} File
+ * Accepts String reference to file and returns File as buffer
+ * @param {String} reference path of the file that you want to retrive
+ * @param {String} fileName name of the file that you want to fetch
+ * @returns {Promise} promise of that file
  */
-
-const getBufferFromServer = (reference, fileName) => {
+export function getBuffer(reference, fileName) {
   var raw = JSON.stringify({
     userId: credentials.userId,
     apiKey: credentials.apiKey,
@@ -16,8 +15,6 @@ const getBufferFromServer = (reference, fileName) => {
     projectName: credentials.projectName,
     reference: reference + "/" + fileName,
   });
-
-  // console.log(raw);
 
   var requestOptions = {
     method: "POST",
@@ -27,31 +24,15 @@ const getBufferFromServer = (reference, fileName) => {
     body: raw,
   };
 
-  // try {
-  //   const data = await fetch(
-  //     "http://localhost:3000/get/getFile",
-  //     requestOptions
-  //   );
-  //   console.log(data);
-  //   return data;
-  // } catch (err) {
-  //   throw new Error(err);
-  // }
-
   return fetch("http://localhost:3000/get/getFile", requestOptions);
-};
-export const get = async (reference, fileName) => {
-  const data = await getBufferFromServer(reference, fileName);
-  // console.log(JSON.parse(data.headers)[["content-type"]]);
-  return data.text();
-};
+}
 
 /**
- * Accepts String reference to file and returns File
- * @param {String} reference
+ * Accepts String reference to file and returns file metadata
+ * @param {String} reference path of the file
  * @returns {Object} File Details
  */
-export const getMetaData = (reference) => {
+export function getMetaData(reference) {
   var raw = JSON.stringify({
     userId: credentials.userId,
     apiKey: credentials.apiKey,
@@ -68,8 +49,19 @@ export const getMetaData = (reference) => {
     body: raw,
   };
 
-  fetch("http://localhost:3000/get/metadata", requestOptions)
+  return fetch("http://localhost:3000/get/metadata", requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
     .catch((error) => console.log("error", error));
-};
+}
+
+
+/**
+ * Accepts String reference to file and returns File in text format
+ * @param {String} reference path of the file that you want to retrive
+ * @param {String} fileName name of the file that you want to fetch
+ * @returns {Promise} promise of that file
+ */
+export async function getFile (reference, fileName) {
+  const data = await getBuffer(reference, fileName);
+  return data.text();
+}
