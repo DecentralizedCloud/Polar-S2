@@ -1,0 +1,18 @@
+{"templates": {
+    "systemName"            : "Polar-S2",
+    "footer"                : "Made with ❤ by Polar-S2 Team",
+    "copyright"             : "MIT OpenSource",
+    "includeDate"           : false,
+    "navType"               : "vertical",
+    "theme"                 : "cyborg",
+    "linenums"              : true,
+    "collapseSymbols"       : true,
+    "inverseNav"            : false,
+    "outputSourceFiles"     : true,
+    "outputSourcePath"      : true,
+    "dateFormat"            : "LL",
+    "syntaxTheme"           : "default",
+    "sort"                  : true,
+    "search"                : true 
+}
+}
