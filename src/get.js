@@ -23,7 +23,7 @@ function arrayBufferToBase64(buffer) {
  * @param {String} fileName name of the file that you want to fetch
  * @returns {bufferData} romise of that file which resolves to Buffer
  * @example
- * const file = await getBuffer("/path/to/your/file", "filename") 
+ * const {file, mimeType} = getBuffer("/path/to/your/file", "filename") 
  */
 
 export const getBuffer = async (reference, fileName) => {
