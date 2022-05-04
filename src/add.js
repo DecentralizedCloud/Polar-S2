@@ -11,6 +11,7 @@ const formdata = new FormData();
  * @param {String} reference path where you want to store file
  * @param {File} file file object fetched from DOM
  * @example
+ * file = document.getElementById("your-element-id").files[0];
  * add("filemame", "/path/to/store/file", file);
  */
 const add = (fileName, reference, file) => {
