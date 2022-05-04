@@ -12,11 +12,16 @@ function arrayBufferToBase64(buffer) {
 }
 
 /**
+ * @typedef {Object} bufferData
+ * @property {Buffer} arrBuf file in arrayBuffer format
+ * @property {String} mimetype MIME type of returned file
+ */
+
+/**
  * Accepts String reference to file and returns File as buffer
  * @param {String} reference path of the file that you want to retrive
  * @param {String} fileName name of the file that you want to fetch
- * @returns {Promise} promise of that file which resolves to Buffer
- * 
+ * @returns {bufferData} romise of that file which resolves to Buffer
  * @example
  * const file = await getBuffer("/path/to/your/file", "filename") 
  */
@@ -61,7 +66,7 @@ export const getBuffer = async (reference, fileName) => {
  */
 
 export const getFile = async (reference, fileName) => {
-    const file = await getBuffer(reference, fileName);
+    const file = getBuffer(reference, fileName);
     const string = arrayBufferToBase64(file.arrBuf);
     return "data: " + file.mimetype + ";base64," + string;
 };
