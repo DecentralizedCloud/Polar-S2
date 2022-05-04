@@ -1,11 +1,11 @@
-import { init, getFile, getBuffer} from "./index.js";
+import { init, getFile, getBuffer } from "./index.js";
 init({
-  APIKey: "testjasfbhw",
-  projectId: "proj123qwe",
-  projectName: "xyzabc",
-  userId: "abcdefghi",
+    APIKey: "testjasfbhw",
+    projectId: "proj123qwe",
+    projectName: "xyzabc",
+    userId: "abcdefghi",
 });
 
-getFile()
+// printData();
 
-printData();
+await getFile("/abcd", "file6");

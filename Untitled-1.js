@@ -12,10 +12,10 @@ function arrayBufferToBase64(buffer) {
 }
 
 /**
- * Accepts String reference to file and returns File as buffer
- * @param {String} reference path of the file that you want to retrive
- * @param {String} fileName name of the file that you want to fetch
- * @returns {Promise} promise of that file
+ * Accepts String reference to file and returns File
+ * @param {String} reference
+ * @param {String} fileName
+ * @returns {Promise} File
  */
 
 export const getBuffer = async (reference, fileName) => {
@@ -49,26 +49,18 @@ export const getBuffer = async (reference, fileName) => {
         throw new Error(err);
     }
 };
-
-/**
- * Accepts String reference to file and returns File in text format
- * @param {String} reference path of the file that you want to retrive
- * @param {String} fileName name of the file that you want to fetch
- * @returns {Promise} promise of that file
- */
-
-export const getFile = async (reference, fileName) => {
+export const get = async (reference, fileName) => {
     const file = await getBuffer(reference, fileName);
     const string = arrayBufferToBase64(file.arrBuf);
     return "data: " + file.mimetype + ";base64," + string;
 };
 
 /**
- * Accepts String reference to file and returns file metadata
- * @param {String} reference path of the file
+ * Accepts String reference to file and returns File
+ * @param {String} reference
  * @returns {Object} File Details
  */
-export function getMetaData(reference) {
+export const getMetaData = (reference) => {
     var raw = JSON.stringify({
         userId: credentials.userId,
         apiKey: credentials.apiKey,
@@ -85,7 +77,8 @@ export function getMetaData(reference) {
         body: raw,
     };
 
-    return fetch("http://localhost:3000/get/metadata", requestOptions)
+    fetch("http://localhost:3000/get/metadata", requestOptions)
         .then((response) => response.text())
+        .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
-}
+};
