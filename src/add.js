@@ -7,9 +7,11 @@ const formdata = new FormData();
 
 /**
  * Uploads the given file to the Polar-S2
- * @param {string} fileName name of the file that you want to upload
- * @param {string} reference path where you want to store file
- * @param {string} file
+ * @param {String} fileName name of the file that you want to upload
+ * @param {String} reference path where you want to store file
+ * @param {File} file file object fetched from DOM
+ * @example
+ * add("filemame", "/path/to/store/file", file);
  */
 const add = (fileName, reference, file) => {
     formdata.append("userId", credentials.userId)

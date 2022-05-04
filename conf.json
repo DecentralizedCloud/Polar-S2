@@ -6,13 +6,13 @@
     "navType"               : "vertical",
     "theme"                 : "cyborg",
     "linenums"              : true,
-    "collapseSymbols"       : true,
+    "collapseSymbols"       : false,
     "inverseNav"            : false,
     "outputSourceFiles"     : true,
     "outputSourcePath"      : true,
     "dateFormat"            : "LL",
     "syntaxTheme"           : "default",
-    "sort"                  : true,
+    "sort"                  : false,
     "search"                : true 
 }
 }

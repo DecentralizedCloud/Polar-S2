@@ -4,6 +4,8 @@ import credentials from "./credentials.js";
 /**
  * Removes File/Folder from Polar-S2
  * @param {string} reference path to folder or file you want to delete
+ * @example
+ * remove("/path/of/file");
  */
 const remove = (reference) => {
     var raw = JSON.stringify({

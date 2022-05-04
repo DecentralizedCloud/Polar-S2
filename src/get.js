@@ -15,7 +15,10 @@ function arrayBufferToBase64(buffer) {
  * Accepts String reference to file and returns File as buffer
  * @param {String} reference path of the file that you want to retrive
  * @param {String} fileName name of the file that you want to fetch
- * @returns {Promise} promise of that file
+ * @returns {Promise} promise of that file which resolves to Buffer
+ * 
+ * @example
+ * const file = await getBuffer("/path/to/your/file", "filename") 
  */
 
 export const getBuffer = async (reference, fileName) => {
@@ -40,10 +43,8 @@ export const getBuffer = async (reference, fileName) => {
             "http://localhost:3000/get/getFile",
             requestOptions
         );
-
         const mimetype = data.headers.get("Content-Type");
         const arrBuf = await data.arrayBuffer();
-
         return { arrBuf, mimetype };
     } catch (err) {
         throw new Error(err);
@@ -54,7 +55,9 @@ export const getBuffer = async (reference, fileName) => {
  * Accepts String reference to file and returns File in text format
  * @param {String} reference path of the file that you want to retrive
  * @param {String} fileName name of the file that you want to fetch
- * @returns {Promise} promise of that file
+ * @returns {Promise} promise of that file which resolves to String
+ * @example 
+ * const file = getFile("/path/to/your/file", "filename")
  */
 
 export const getFile = async (reference, fileName) => {
