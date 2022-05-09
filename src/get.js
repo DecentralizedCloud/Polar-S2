@@ -45,7 +45,7 @@ export async function getBuffer(reference, fileName) {
 
 	try {
 		const data = await fetch(
-			"http://localhost:3000/get/getFile",
+			"http://13.90.95.93:3000/get/getFile",
 			requestOptions
 		);
 		const mimetype = data.headers.get("Content-Type");
@@ -117,7 +117,7 @@ export function getMetaData(reference) {
 		body: raw,
 	};
 
-	return fetch("http://localhost:3000/get/metadata", requestOptions)
+	return fetch("http://13.90.95.93:3000/get/metadata", requestOptions)
 		.then((response) => response.text())
 		.catch((error) => console.log("error", error));
 }
